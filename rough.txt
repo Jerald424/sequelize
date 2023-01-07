@@ -1,0 +1,22 @@
+user modules:
+  login:
+    -login
+    -logout
+    -change password
+  
+  profile:
+    -name
+    -place
+    -city
+    -state
+
+  questions:
+    -admin add
+    -answer user
+    -edit || delete
+
+  search username:
+    -view profile
+    -add friends
+    -show friends
+    -remove friends
