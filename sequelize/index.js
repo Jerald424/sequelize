@@ -25,6 +25,9 @@ db.Sequelize = Sequelize;
 db.AdminUn = require('../models/adminUNModel')(sequelize);
 db.Role = require('../models/roleModel')(sequelize);
 db.Login = require('../models/userLogin')(sequelize);
+db.Profile = require('../models/profileModel')(sequelize)
+db.City = require('../models/supportData/cityModel')(sequelize)
+db.State = require('../models/supportData/stateModel')(sequelize)
 
 db.Role.hasOne(db.Login, {
     foreignKey: {
@@ -32,7 +35,34 @@ db.Role.hasOne(db.Login, {
         name: 'role_id'
     }
 })
-db.Login.belongsTo(db.Role)
+db.Login.belongsTo(db.Role);
+
+// ___PROFILE__
+db.Login.hasOne(db.Profile, {
+    foreignKey: {
+        field: 'user_id',
+        name: 'user_id'
+    }
+})
+db.Profile.belongsTo(db.Login);
+//-city
+db.City.hasOne(db.Profile, {
+    foreignKey: {
+        field: 'city_id',
+        name: 'city_id',
+    }
+})
+db.Profile.belongsTo(db.City)
+
+//-state
+db.State.hasOne(db.Profile, {
+    foreignKey: {
+        field: 'state_id',
+        name: 'state_id'
+    }
+})
+db.Profile.belongsTo(db.State)
+
 
 db.sequelize.sync({ alter: true })
 
