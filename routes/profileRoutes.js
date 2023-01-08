@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const db = require('../sequelize');
 const { isAdminUser } = require('../utils/isAdminUser');
+const cityModel = require('../models/supportData/cityModel')
 
 router.post('/profile', async (req, res) => {
     try {
@@ -50,6 +51,9 @@ router.get('/profile', async (req, res) => {
             where: {
                 user_id: req.user_info.user_id
             },
+            include: [
+                { model: db.City, as: 'City' }
+            ]
         })
         if (!profile) res.status(400).json('No profile for you')
         res.json(profile)
