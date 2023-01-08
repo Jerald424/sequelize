@@ -1,9 +1,11 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
+require('dotenv').config()
+
 
 const sequelize = new Sequelize({
-    database: 'expressproject',
-    username: 'postgres',
-    password: 'admin',
+    database: process.env.DATABASE,
+    username: process.env.USER,
+    password: process.env.PASSWORD,
     port: 5432,
     host: 'localhost',
     dialect: 'postgres'
