@@ -1,10 +1,15 @@
-import { Container } from 'components';
+import { Container, HeadingText, Para, SubHeading, Switch } from 'components';
+import { useColors } from 'customHooks/ColorsHook';
 import React from 'react';
 
 const Login = () => {
+    const { toggleTheme } = useColors()
+    const handleChange = (value) => {
+        toggleTheme(value)
+    }
     return (
         <Container>
-            <h1>Heading Text</h1>
+            <Switch handleChange={handleChange} />
         </Container>
     );
 }
