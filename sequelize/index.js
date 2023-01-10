@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const sequelize = new Sequelize({
     database: process.env.DATABASE,
-    username: process.env.USERNAME,
+    username: process.env.USER,
     password: process.env.PASSWORD,
     port: 5432,
     host: 'localhost',
@@ -64,6 +64,6 @@ db.State.hasOne(db.Profile, {
 db.Profile.belongsTo(db.State)
 
 
-db.sequelize.sync({ alter: true })
+db.sequelize.sync({})
 
 module.exports = db;

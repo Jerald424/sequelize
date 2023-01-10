@@ -7,10 +7,21 @@
     transition: 0.2s ease-in-out;
 }
 
+/* _________________________CUSTOM_CLASS____________________ */
 .dajc {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.df {
+    display: flex;
+}
+
+.daj {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tc {
@@ -24,6 +35,9 @@
 .fc {
     flex-direction: column;
 }
+
+
+/* _______________________________________________________________ */
 
 /* The switch - the box around the slider */
 .switch {
@@ -83,4 +97,12 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+/* ____LOADER_____ */
+.pop-up-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
