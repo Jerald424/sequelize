@@ -7,6 +7,20 @@
     transition: 0.2s ease-in-out;
 }
 
+.dajc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f1 {
+    flex: 1;
+}
+
+.fc {
+    flex-direction: column;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
