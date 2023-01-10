@@ -14,9 +14,9 @@ export const SubHeading = ({ children }) => {
     )
 }
 
-export const Para = ({ children }) => {
+export const Para = ({ children, ...props }) => {
     const { colors } = useColors()
     return (
-        <p style={{ color: colors?.textSecondary, margin: 0 }}>{children}</p>
+        <p {...props} style={{ color: colors?.textSecondary, margin: 0 }}>{children}</p>
     )
 }

@@ -57,3 +57,14 @@
     border-radius: 5px;
 
 }
+
+.login-error {
+    color: red;
+    font-size: 10px;
+    height: 15px;
+}
+
+.sign-in-button {
+    cursor: pointer;
+    font-size: 12px;
+}
