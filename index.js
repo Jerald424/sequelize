@@ -10,6 +10,7 @@ app.use(cors()) //return value to client
 
 //routes
 app.use('/api', require('./routes/loginRoutes'))
+app.use('/api', require('./routes/roleRoutes'))
 // ___AUTHENTICATED_ROUTE__
 app.use(authorization);
 app.use('/api', require('./routes/changePassword'))

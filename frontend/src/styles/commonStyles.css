@@ -13,6 +13,10 @@
     justify-content: center;
 }
 
+.tc {
+    text-transform: capitalize;
+}
+
 .f1 {
     flex: 1;
 }
