@@ -38,7 +38,7 @@ export default function Header() {
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    <Switch handleChange={toggleTheme} className="light-dark-switch" />
+                    <Switch handleChange={toggleTheme} value={isDark} className="light-dark-switch" />
                     <form class="d-flex">
                         <input class={`form-control me-2 ${isDark ? "bg-dark" : "bg-light"}`} type="search" placeholder="Search" aria-label="Search" />
                         <button class="btn btn-outline-success" type="submit">Search</button>
