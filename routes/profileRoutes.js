@@ -54,7 +54,7 @@ router.get('/profile', async (req, res) => {
                 { model: db.City, as: 'City' }
             ]
         })
-        if (!profile) res.status(400).json('No profile for you')
+        if (!profile) return res.status(400).json('No profile for you')
         res.json(profile)
     } catch (error) {
         res.status(500).send(error.message)

@@ -5,7 +5,7 @@ import Icon from "./Icon";
 import Loader from "./Loader";
 import Button from "./Button";
 import Sidebar from "./Sidebar";
-
+import Header from "./Header";
 export {
     Container,
     HeadingText,
@@ -15,5 +15,6 @@ export {
     Icon,
     Loader,
     Button,
-    Sidebar
+    Sidebar,
+    Header
 }
