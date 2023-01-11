@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const db = require('../sequelize');
 const { isAdminUser } = require('../utils/isAdminUser');
-const cityModel = require('../models/supportData/cityModel')
 
 router.post('/profile', async (req, res) => {
     try {

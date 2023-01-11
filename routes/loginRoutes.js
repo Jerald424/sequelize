@@ -54,15 +54,15 @@ router.post('/sign-up', async (req, res) => {
 router.post('/sign-in', async (req, res) => {
     try {
         const { user_name, password } = req.body;
+        console.log('user_name, password:__________________________________________________ ', user_name, password);
         if (!(Boolean(user_name) && Boolean(password))) return res.status(400).send('required field missing');
 
         // __CHECK_USER_NAME_EXIST_
         const userExist = await db.Login.findOne({
-            where: { user_name: user_name },
-
+            where: { user_name: user_name }
 
         })
-        if (!userExist) return res.status(401).send('User name does not exist')
+        if (!userExist) return res.status(401).json('User name does not exist')
 
 
         // ___CHECK_USER_NAME_&&_PASSWORD_MATCHED__

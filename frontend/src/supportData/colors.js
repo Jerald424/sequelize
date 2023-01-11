@@ -7,7 +7,7 @@ const light = {
     iconColor: '#FF9F4A'
 }
 const dark = {
-    backgroundColor: 'black',
+    backgroundColor: '#222222',
     textSecondary: '#C8C8C8',
     subHeading: '#DEDEDE',
     heading: '#FFFFFF',

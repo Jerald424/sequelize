@@ -1,20 +1,15 @@
 import axios from "axios";
 
-const AxiosInstance = axios.create()
+const AxiosInstance = axios.create();
+AxiosInstance.defaults.baseURL = "http://localhost:5000/api"
 
 export default AxiosInstance;
 
 AxiosInstance.interceptors.response.use(response => {
-    return response.data
+  // console.log('RESPONSE___________________', JSON.stringify(response, null, 4))
+  return response.data
 }, error => {
-    return error
+  // console.log("err____________________________________________", JSON.stringify(error?.response?.data, null, 2))
+  return Promise.reject(String(error?.response?.data))
 })
 
-/* 
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    return Promise.reject(error);
-  }
-);
-*/

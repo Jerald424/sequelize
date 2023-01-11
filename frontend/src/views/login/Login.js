@@ -18,8 +18,8 @@ const Login = () => {
     const [login, setLogin] = useState(true);
     const [admin, setAdmin] = useState(false);
     const [roles, setRoles] = useState([]);
-    const { isLogin, loader, userData } = LoginStore.useState()
-    console.log(roles)
+    const { loader, userData } = LoginStore.useState()
+    console.log('userData: ', userData);
     // ___ASSETS____
     const formAssets = [
         { label: "User Name", icon: BiUser, name: 'user_name', validation: "required|min:2|max:20", placholder: "Enter user name" },
@@ -49,12 +49,20 @@ const Login = () => {
                 }
             })
             let url = login ? "sign-in" : "sign-up";
-            AxiosInstance.post(`http://localhost:5000/api/${url}`, data)
+            AxiosInstance.post(`/${url}`, data)
                 .then(res => {
+                    AxiosInstance.defaults.headers['token'] = res?.token;
                     showToast(res.message, 'success');
-                    localStorage.setItem('token', res?.token)
+                    localStorage.setItem('token', res?.token);
+
+                    LoginStore.update(s => {
+                        s.isLogin = true;
+                        s.userData = res?.data
+                    })
                 })
-                .catch(err => showToast(err))
+                .catch(err => {
+                    showToast(err)
+                })
                 .finally(_ => LoginStore.update(s => {
                     s.loader = false
                 }))
@@ -63,10 +71,12 @@ const Login = () => {
     };
 
     useEffect(() => {
-        AxiosInstance.get("http://localhost:5000/api/role")
+        AxiosInstance.get("/role")
             .then(res => setRoles(res?.data))
-            .catch(err => console.log(err))
-    }, [])
+            .catch(err => {
+                showToast(err)
+            })
+    }, []);
 
     return (
         <Container padding={0} className={'login-container'}>

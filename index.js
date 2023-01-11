@@ -11,6 +11,7 @@ app.use(cors()) //return value to client
 //routes
 app.use('/api', require('./routes/loginRoutes'))
 app.use('/api', require('./routes/roleRoutes'))
+app.use('/api', require('./routes/isVerifyRoute'))
 // ___AUTHENTICATED_ROUTE__
 app.use(authorization);
 app.use('/api', require('./routes/changePassword'))
