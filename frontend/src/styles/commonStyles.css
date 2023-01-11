@@ -7,6 +7,15 @@
     transition: 0.2s ease-in-out;
 }
 
+html,
+body {
+
+    height: 100%;
+
+    margin: 0;
+
+}
+
 /* _________________________CUSTOM_CLASS____________________ */
 .dajc {
     display: flex;

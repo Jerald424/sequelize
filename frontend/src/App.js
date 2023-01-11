@@ -5,7 +5,7 @@ import { LoginStore } from './store/login/loginStore';
 import Dashboard from 'views/dashboard'
 import AxiosInstance from 'service/AxiosInstance';
 import useToast from 'customHooks/useToast';
-import { Sidebar } from 'components';
+import { Header, Sidebar } from 'components';
 
 const App = () => {
     const { isLogin } = LoginStore.useState();
@@ -50,11 +50,14 @@ const App = () => {
         <BrowserRouter>
             {
                 isLogin ?
-                    <Sidebar>
-                        <Routes>
-                            <Route path='/' element={<Dashboard />} />
-                        </Routes>
-                    </Sidebar>
+                    <>
+                        <Header />
+                        <Sidebar>
+                            <Routes>
+                                <Route path='/' element={<Dashboard />} />
+                            </Routes>
+                        </Sidebar>
+                    </>
                     :
                     <Routes>
                         <Route path='/' element={<Login />} />
