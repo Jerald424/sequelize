@@ -1,9 +1,9 @@
 import { useColors } from "customHooks/ColorsHook"
 
-export const Container = ({ children, style, className, padding = 15 }) => {
+export const Container = ({ children, style, className, }) => {
     const { colors } = useColors()
     return (
-        <div className={`${className}`} style={{ padding: padding, ...style }}>{children}</div>
+        <div className={`${className} custom-container`} style={{ backgroundColor: colors?.backgroundColor, minHeight: "100vh", ...style }}>{children}</div>
     )
 }
 /* 

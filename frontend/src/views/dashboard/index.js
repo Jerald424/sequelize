@@ -17,11 +17,72 @@ const Index = () => {
                 s.data = res
             }))
             .catch(err => showToast(err, 'warn'))
-    }, [])
+    }, []);
     return (
-        <Container>
+        <div>
             <SubHeading>Dashboard</SubHeading>
-        </Container>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+            <SubHeading>Dashboard</SubHeading>
+
+        </div>
     );
 }
 

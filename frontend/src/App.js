@@ -5,7 +5,7 @@ import { LoginStore } from './store/login/loginStore';
 import Dashboard from 'views/dashboard'
 import AxiosInstance from 'service/AxiosInstance';
 import useToast from 'customHooks/useToast';
-import { Header, Sidebar } from 'components';
+import { Container, Header, Sidebar } from 'components';
 
 const App = () => {
     const { isLogin } = LoginStore.useState();
@@ -47,23 +47,27 @@ const App = () => {
         getInitialData();
     }, []);
     return (
-        <BrowserRouter>
-            {
-                isLogin ?
-                    <>
-                        <Header />
-                        <Sidebar>
-                            <Routes>
-                                <Route path='/' element={<Dashboard />} />
-                            </Routes>
-                        </Sidebar>
-                    </>
-                    :
-                    <Routes>
-                        <Route path='/' element={<Login />} />
-                    </Routes>
-            }
-        </BrowserRouter>
+        <Container>
+            <BrowserRouter>
+                {
+                    isLogin ?
+                        <>
+                            <Header />
+                            <Sidebar>
+                                <div className='mt-5'>
+                                    <Routes>
+                                        <Route path='/' element={<Dashboard />} />
+                                    </Routes>
+                                </div>
+                            </Sidebar>
+                        </>
+                        :
+                        <Routes>
+                            <Route path='/' element={<Login />} />
+                        </Routes>
+                }
+            </BrowserRouter>
+        </Container>
     );
 }
 

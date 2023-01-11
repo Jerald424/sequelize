@@ -1,0 +1,9 @@
+@media only screen and (max-width:992px) {
+    .light-dark-switch {
+        margin-bottom: 10px;
+    }
+}
+
+.light-dark-switch {
+    margin-right: 10px;
+}

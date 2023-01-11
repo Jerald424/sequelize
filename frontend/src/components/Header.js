@@ -1,6 +1,15 @@
+import { useColors } from "customHooks/ColorsHook";
+import { ThemeStore } from "store/theme/colorStore"
+import Switch from "./Switch";
+import 'styles/header.css'
+
 export default function Header() {
+    const { isDark } = ThemeStore.useState();
+    const { colors, toggleTheme } = useColors();
+
+
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class={`navbar navbar-expand-lg fixed-top ${isDark ? "navbar-dark bg-dark " : "navbar-light bg-light"}`} style={{ boxShadow: `0.1px 0.1px 2px ${colors?.textSecondary}` }}>
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,8 +38,9 @@ export default function Header() {
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
+                    <Switch handleChange={toggleTheme} className="light-dark-switch" />
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <input class={`form-control me-2 ${isDark ? "bg-dark" : "bg-light"}`} type="search" placeholder="Search" aria-label="Search" />
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>

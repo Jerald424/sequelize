@@ -1,15 +1,18 @@
 import { useColors } from 'customHooks/ColorsHook';
 import React from 'react';
 import Icon from './Icon';
-import { BiSun } from 'react-icons/bi';
+import { BsSunFill } from 'react-icons/bs';
+import { IoMdMoon } from 'react-icons/io';
+import { ThemeStore } from 'store/theme/colorStore';
 
-const Switch = ({ handleChange, size = 3 }) => {
+const Switch = ({ handleChange, size = 3, className }) => {
     const { colors } = useColors();
+    const { isDark } = ThemeStore.useState()
     return (
-        <label class="switch" >
+        <label class={`switch ${className}`}>
             <input type="checkbox" onChange={(e) => handleChange(e.target.checked)} />
             <span class="slider round" style={{ backgroundColor: colors?.iconColor, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon src={BiSun} size={30} style={{ color: 'red' }} />
+                <Icon src={isDark ? IoMdMoon : BsSunFill} size={17} style={{ color: 'white', marginRight: isDark ? '23px' : '-23px' }} />
             </span>
         </label>
     );

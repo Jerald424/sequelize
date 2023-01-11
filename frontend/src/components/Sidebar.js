@@ -4,12 +4,10 @@ import { Para } from './Typography';
 
 const Sidebar = ({ children }) => {
     return (
-        <Container className="dajc" padding={0}>
-            <div >
-                <Para>Profile</Para>
-            </div>
+        <div >
+            <Para>Profile</Para>
             {children}
-        </Container>
+        </div>
     );
 }
 

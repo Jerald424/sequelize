@@ -5,18 +5,9 @@
     font-family: 'Lato', sans-serif;
     /* font-family: 'Poppins', sans-serif; */
     transition: 0.2s ease-in-out;
+    box-sizing: border-box;
 }
 
-html,
-body {
-
-    height: 100%;
-
-    margin: 0;
-
-}
-
-/* _________________________CUSTOM_CLASS____________________ */
 .dajc {
     display: flex;
     align-items: center;
