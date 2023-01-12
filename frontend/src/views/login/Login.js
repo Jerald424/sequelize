@@ -18,8 +18,8 @@ const Login = () => {
     const [login, setLogin] = useState(true);
     const [admin, setAdmin] = useState(false);
     const [roles, setRoles] = useState([]);
-    const { loader, userData } = LoginStore.useState()
-    console.log('userData: ', roles);
+    console.log('roles: ', roles);
+    const { loader } = LoginStore.useState()
     // ___ASSETS____
     const formAssets = [
         { label: "User Name", icon: BiUser, name: 'user_name', validation: "required|min:2|max:20", placholder: "Enter user name" },
@@ -74,7 +74,7 @@ const Login = () => {
         AxiosInstance.get("/role")
             .then(res => {
                 console.log('res', res)
-                setRoles(res?.data)
+                setRoles(res)
             })
             .catch(err => {
                 console.log('err', err)
