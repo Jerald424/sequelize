@@ -3,7 +3,7 @@ import { useColors } from "customHooks/ColorsHook"
 export const HeadingText = ({ children, style }) => {
     const { colors } = useColors();
     return (
-        <h4 style={{ color: colors.heading, margin: 0, ...style }}>{children}</h4>
+        <h4 style={{ color: colors.heading, fontWeight: "bold", margin: 0, ...style }}>{children}</h4>
     )
 }
 

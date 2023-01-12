@@ -2,13 +2,13 @@ const { Sequelize } = require('sequelize');
 require('dotenv').config()
 console.log('_____________',
     process.env.DATABASE,
-    process.env.USERNAME,
+    process.env.USER,
     process.env.PASSWORD
 )
 
 const sequelize = new Sequelize({
     database: process.env.DATABASE,
-    username: process.env.USERNAME,
+    username: process.env.USER,
     password: process.env.PASSWORD,
     port: 5432,
     host: 'localhost',

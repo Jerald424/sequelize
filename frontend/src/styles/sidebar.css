@@ -1,0 +1,22 @@
+.sidebar-routes {
+    display: flex;
+    margin-top: 55px;
+}
+
+.sidebar-logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+.total-sidebar {
+    position: fixed;
+    height: 100vh;
+    padding: 0 10px;
+    width: 220px;
+}
+
+.total-routes {
+    padding-left: 230px;
+    padding-top: 15px;
+}

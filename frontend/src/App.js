@@ -54,11 +54,9 @@ const App = () => {
                         <>
                             <Header />
                             <Sidebar>
-                                <div className='mt-5'>
-                                    <Routes>
-                                        <Route path='/' element={<Dashboard />} />
-                                    </Routes>
-                                </div>
+                                <Routes>
+                                    <Route path='/' element={<Dashboard />} />
+                                </Routes>
                             </Sidebar>
                         </>
                         :
