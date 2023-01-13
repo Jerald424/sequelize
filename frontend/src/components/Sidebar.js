@@ -7,10 +7,14 @@ import { BiHome } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { FiUsers } from 'react-icons/fi';
 import { IoMdSettings } from 'react-icons/io';
+import { SlArrowRight } from 'react-icons/sl';
 import { useColors } from 'customHooks/ColorsHook';
+import Icon from './Icon';
+import { ThemeStore } from 'store/theme/colorStore';
 
 const Sidebar = ({ children }) => {
     const { colors } = useColors();
+    const { isDark } = ThemeStore.useState();
 
     const navigatioAssets = [
         { name: "Home", link: "#", icon: BiHome },
@@ -21,13 +25,15 @@ const Sidebar = ({ children }) => {
 
     return (
         <div className='sidebar-routes'>
-            <div className='total-sidebar' style={{ boxShadow: `2px 2px 3px ${colors?.popupBg}` }}>
+            <div className={`total-sidebar ${isDark ? "bg-dark" : "bg-light"}`} style={{ boxShadow: `2px 2px 3px ${colors?.popupBg}` }}>
                 <div className='daj mt-2'>
                     <img src={require('assets/logo.png')} className='sidebar-logo' />
                     <HeadingText>App Name</HeadingText>
                 </div>
-                <div className=''>
-
+                <div className='sidebar-toggle-part'>
+                    <div className='toggle-round dajc' style={{ backgroundColor: colors?.backgroundColor, boxShadow: `1px 1px 3px  ${colors?.textSecondary}` }}>
+                        <Icon src={SlArrowRight} size={15} style={{ color: colors?.textSecondary }} />
+                    </div>
                 </div>
             </div>
             <div className='total-routes'>

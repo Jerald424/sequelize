@@ -20,3 +20,15 @@
     padding-left: 230px;
     padding-top: 15px;
 }
+
+.sidebar-toggle-part {
+    position: absolute;
+    right: -10px;
+}
+
+.toggle-round {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+
+}
