@@ -11,6 +11,7 @@ import { SlArrowRight } from 'react-icons/sl';
 import { useColors } from 'customHooks/ColorsHook';
 import Icon from './Icon';
 import { ThemeStore } from 'store/theme/colorStore';
+import { Hover } from './styleComponent/Hover';
 
 const Sidebar = ({ children }) => {
     const { colors } = useColors();
@@ -31,9 +32,10 @@ const Sidebar = ({ children }) => {
                     <HeadingText>App Name</HeadingText>
                 </div>
                 <div className='sidebar-toggle-part'>
-                    <div className='toggle-round dajc' style={{ backgroundColor: colors?.backgroundColor, boxShadow: `1px 1px 3px  ${colors?.textSecondary}` }}>
-                        <Icon src={SlArrowRight} size={15} style={{ color: colors?.textSecondary }} />
-                    </div>
+                    <Hover color={true} className='toggle-round dajc' style={{ backgroundColor: colors?.backgroundColor, boxShadow: `1px 1px 3px  ${colors?.textSecondary}`, color: colors?.textSecondary }}>
+                        {/* <Icon src={SlArrowRight} size={15} style={{ color: colors?.textSecondary }} /> */}
+                        <SlArrowRight />
+                    </Hover>
                 </div>
             </div>
             <div className='total-routes'>
