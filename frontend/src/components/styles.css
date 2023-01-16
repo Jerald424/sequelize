@@ -5,3 +5,12 @@
 .hover-light:hover {
     background-color: #eaeaea;
 }
+
+.dark-hover-color{
+
+}
+
+.light-hover-color:hover{
+    background-color: #94b6ff63;
+    color: #0052CC !important;
+}

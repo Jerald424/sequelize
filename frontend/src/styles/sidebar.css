@@ -1,56 +1,68 @@
 .sidebar-routes {
-    display: flex;
-    margin-top: 55px;
+  display: flex;
+  margin-top: 55px;
 }
 
 .sidebar-logo {
-    height: 50px;
-    width: 50px;
-    object-fit: contain;
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
 }
 
 .total-sidebar {
-    position: fixed;
-    height: 100vh;
-    /* padding: 0 10px;
+  position: fixed;
+  height: 100vh;
+  /* padding: 0 10px;
     width: 220px; */
+  transition: 0.2s ease;
 }
 
 .total-sidebar-active {
-    padding: 0 10px;
-    width: 250px;
+  padding: 0 10px;
+  width: 250px;
 }
 
 .total-sidebar-inactive {
-    width: 20px;
+  width: 20px;
 }
 
 .total-sidebar-collapse {
-    width: 10px;
+  width: 10px;
 }
 
 .total-routes-sidebar-on {
-    padding-left: 270px;
+  padding-left: 270px;
 }
 
 .total-routes-sidebar-off {
-    padding-left: 40px;
+  padding-left: 40px;
 }
 
 .sidebar-toggle-part {
-    position: absolute;
-    right: -10px;
-    top: 50px;
+  position: absolute;
+  right: -10px;
+  top: 50px;
 }
 
 .toggle-round {
-    height: 30px;
-    width: 30px;
-    border-radius: 50px;
-
+  height: 25px;
+  width: 25px;
+  border-radius: 50px;
 }
 
 .toggle-round:hover {
-    background-color: rgb(0, 98, 255) !important;
-    color: white !important;
+  background-color: rgb(0, 98, 255) !important;
+  color: white !important;
+}
+
+.toggle-button-off {
+  transform: rotate(180deg);
+}
+
+.sidebar-absolute {
+  width: 250px;
+}
+
+.total-routes {
+  transition: 0.2s ease;
 }
