@@ -12,18 +12,35 @@
 .total-sidebar {
     position: fixed;
     height: 100vh;
-    padding: 0 10px;
-    width: 220px;
+    /* padding: 0 10px;
+    width: 220px; */
 }
 
-.total-routes {
-    padding-left: 230px;
-    padding-top: 15px;
+.total-sidebar-active {
+    padding: 0 10px;
+    width: 250px;
+}
+
+.total-sidebar-inactive {
+    width: 20px;
+}
+
+.total-sidebar-collapse {
+    width: 10px;
+}
+
+.total-routes-sidebar-on {
+    padding-left: 270px;
+}
+
+.total-routes-sidebar-off {
+    padding-left: 40px;
 }
 
 .sidebar-toggle-part {
     position: absolute;
     right: -10px;
+    top: 50px;
 }
 
 .toggle-round {
@@ -31,4 +48,9 @@
     width: 30px;
     border-radius: 50px;
 
+}
+
+.toggle-round:hover {
+    background-color: rgb(0, 98, 255) !important;
+    color: white !important;
 }

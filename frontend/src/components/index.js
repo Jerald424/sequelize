@@ -6,7 +6,7 @@ import Loader from "./Loader";
 import Button from "./Button";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import { Hover } from "./styleComponent/Hover";
+import Hover from "./styleComponent/Hover";
 
 export {
     Container,

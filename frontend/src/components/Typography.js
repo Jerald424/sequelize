@@ -3,7 +3,7 @@ import { useColors } from "customHooks/ColorsHook"
 export const HeadingText = ({ children, style }) => {
     const { colors } = useColors();
     return (
-        <h4 style={{ color: colors.heading, fontWeight: "bold", margin: 0, ...style }}>{children}</h4>
+        <h4 style={{ color: colors.heading, fontWeight: "bold", margin: 0, overflow: "hidden", textOverflow: 'ellipsis', whiteSpace: "nowrap", ...style }}>{children}</h4>
     )
 }
 
@@ -20,3 +20,8 @@ export const Para = ({ children, style, ...props }) => {
         <p {...props} style={{ color: colors?.textSecondary, margin: 0, ...style }}>{children}</p>
     )
 }
+/* 
+white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+*/

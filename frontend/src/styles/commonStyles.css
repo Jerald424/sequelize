@@ -4,8 +4,8 @@
     /* font-family: 'Bebas Neue', cursive; */
     font-family: 'Lato', sans-serif;
     /* font-family: 'Poppins', sans-serif; */
-    /* transition: 0.2s ease-in-out;
-    box-sizing: border-box; */
+    transition: 0.2s ease;
+    /* box-sizing: border-box; */
 }
 
 .dajc {
@@ -34,6 +34,18 @@
 
 .fc {
     flex-direction: column;
+}
+
+.br-2 {
+    border-radius: 4px;
+}
+
+.br-3 {
+    border-radius: 6px;
+}
+
+.br-4 {
+    border-radius: 8px;
 }
 
 
