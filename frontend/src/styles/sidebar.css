@@ -65,4 +65,5 @@
 
 .total-routes {
   transition: 0.2s ease;
+  padding-right: 20px;
 }

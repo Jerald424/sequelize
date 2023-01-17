@@ -9,7 +9,7 @@ console.log(
 
 const sequelize = new Sequelize({
   database: process.env.DATABASE,
-  username: process.env.USERNAME,
+  username: process.env.USER,
   password: process.env.PASSWORD,
   port: 5432,
   host: "localhost",

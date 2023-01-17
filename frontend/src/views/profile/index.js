@@ -7,6 +7,7 @@ import CityState from "./CityState";
 export default function Index() {
     const { userData, roles } = LoginStore.useState();
     const role = roles?.filter(res => res?.id === userData?.role_id)?.[0];
+    console.log('___________', role)
 
     useEffect(() => {
         getCity()
