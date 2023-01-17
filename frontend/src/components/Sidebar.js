@@ -48,8 +48,9 @@ const Sidebar = ({ children }) => {
       <div
         onMouseEnter={() => handleHover("on")}
         onMouseLeave={() => handleHover("off")}
-        className={`total-sidebar ${hover && "sidebar-absolute"} ${toggle || hover ? "total-sidebar-active" : "total-sidebar-inactive"
-          } ${isDark ? "bg-dark" : "bg-light"}`}
+        className={`total-sidebar ${hover && "sidebar-absolute"} ${
+          toggle || hover ? "total-sidebar-active" : "total-sidebar-inactive"
+        } ${isDark ? "bg-dark" : "bg-light"}`}
         style={{ boxShadow: `2px 2px 3px ${colors?.popupBg}` }}
       >
         <div className="sidebar-toggle-part" onClick={handleToggle}>
@@ -69,17 +70,21 @@ const Sidebar = ({ children }) => {
           </div>
         </div>
         <div
-          className="daj mt-2"
+          className="dfa mt-2"
           style={{ display: toggle || hover ? "flex" : "none" }}
         >
-          <img src={require("assets/logo.png")} className="sidebar-logo" />
+          <img src={require("assets/logo.png")} className="sidebar-logo me-3" />
           <HeadingText style={{ width: "150px" }}>App Name</HeadingText>
         </div>
 
         <div style={{ display: toggle || hover ? "block" : "none" }}>
           <div className="mt-5">
             {navigationAssets?.map((res, i) => (
-              <Hover className="df p-2 mt-1 br-2 cp" key={i + "navigation"} onClick={() => navigate(res?.link)}>
+              <Hover
+                className="df p-2 mt-1 br-2 cp"
+                key={i + "navigation"}
+                onClick={() => navigate(res?.link)}
+              >
                 <Icon className="me-4" src={res?.icon} />
                 <Para className="f1">{res?.name}</Para>
               </Hover>
@@ -88,8 +93,9 @@ const Sidebar = ({ children }) => {
         </div>
       </div>
       <div
-        className={`total-routes f1 ${toggle ? "total-routes-sidebar-on" : "total-routes-sidebar-off"
-          } pt-3`}
+        className={`total-routes f1 ${
+          toggle ? "total-routes-sidebar-on" : "total-routes-sidebar-off"
+        } pt-3`}
       >
         {children}
       </div>

@@ -17,6 +17,10 @@
 .df {
   display: flex;
 }
+.dfa{
+  display: flex;
+  align-items: center;
+}
 
 .daj {
   display: flex;
