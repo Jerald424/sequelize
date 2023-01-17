@@ -12,17 +12,18 @@ import { useColors } from "customHooks/ColorsHook";
 import Icon from "./Icon";
 import { ThemeStore } from "store/theme/colorStore";
 import Hover from "./styleComponent/Hover";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ children }) => {
   const { colors } = useColors();
+  const navigate = useNavigate();
   const { isDark } = ThemeStore.useState();
   const [toggle, setToggle] = useState(true);
   const [hover, setHover] = useState(false);
-  console.log("_______________", hover);
 
   const navigationAssets = [
-    { name: "Home", link: "#", icon: BiHome },
-    { name: "Profile", link: "#", icon: CgProfile },
+    { name: "Home", link: "/", icon: BiHome },
+    { name: "Profile", link: "/profile", icon: CgProfile },
     { name: "Friends", link: "#", icon: FiUsers },
     { name: "Settings", link: "#", icon: IoMdSettings },
   ];
@@ -47,9 +48,8 @@ const Sidebar = ({ children }) => {
       <div
         onMouseEnter={() => handleHover("on")}
         onMouseLeave={() => handleHover("off")}
-        className={`total-sidebar ${hover && "sidebar-absolute"} ${
-          toggle || hover ? "total-sidebar-active" : "total-sidebar-inactive"
-        } ${isDark ? "bg-dark" : "bg-light"}`}
+        className={`total-sidebar ${hover && "sidebar-absolute"} ${toggle || hover ? "total-sidebar-active" : "total-sidebar-inactive"
+          } ${isDark ? "bg-dark" : "bg-light"}`}
         style={{ boxShadow: `2px 2px 3px ${colors?.popupBg}` }}
       >
         <div className="sidebar-toggle-part" onClick={handleToggle}>
@@ -79,7 +79,7 @@ const Sidebar = ({ children }) => {
         <div style={{ display: toggle || hover ? "block" : "none" }}>
           <div className="mt-5">
             {navigationAssets?.map((res, i) => (
-              <Hover className="df p-2 mt-1 br-2" key={i + "navigation"}>
+              <Hover className="df p-2 mt-1 br-2" key={i + "navigation"} onClick={() => navigate(res?.link)}>
                 <Icon className="me-4" src={res?.icon} />
                 <Para className="f1">{res?.name}</Para>
               </Hover>
@@ -88,9 +88,8 @@ const Sidebar = ({ children }) => {
         </div>
       </div>
       <div
-        className={`total-routes ${
-          toggle ? "total-routes-sidebar-on" : "total-routes-sidebar-off"
-        } pt-3`}
+        className={`total-routes ${toggle ? "total-routes-sidebar-on" : "total-routes-sidebar-off"
+          } pt-3`}
       >
         {children}
       </div>

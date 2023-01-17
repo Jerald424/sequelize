@@ -3,13 +3,13 @@ require("dotenv").config();
 console.log(
   "_____________",
   process.env.DATABASE,
-  process.env.USER,
+  process.env.USERNAME,
   process.env.PASSWORD
 );
 
 const sequelize = new Sequelize({
   database: process.env.DATABASE,
-  username: process.env.USER,
+  username: process.env.USERNAME,
   password: process.env.PASSWORD,
   port: 5432,
   host: "localhost",

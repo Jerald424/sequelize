@@ -16,7 +16,7 @@ router.post('/profile', async (req, res) => {
                 name: name,
                 place: place,
                 city_id: city_id,
-                state_id: city_id
+                state_id: state_id
             }
         })
 
@@ -111,6 +111,34 @@ router.get('/city', async (req, res) => {
         const city = await db.City.findAndCountAll()
         res.json(city)
 
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+router.get('/state', async (req, res) => {
+    try {
+        const state = await db.State.findAndCountAll()
+        res.json(state)
+
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+router.post('/state', isAdminUser, async (req, res) => {
+    try {
+        const { name } = req.body;
+        if (!(Boolean(name))) return res.status(400).send('Required field are missing')
+        const [state, created] = await db.State.findOrCreate({
+            where: {
+                name: name
+            },
+            defaults: {
+                name: name
+            }
+        })
+        res.json({ state: state, created: created })
     } catch (error) {
         res.status(500).send(error.message)
     }

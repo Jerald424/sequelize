@@ -1,11 +1,12 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from 'views/login/Login';
-import { LoginStore } from './store/login/loginStore';
+import { getRole, LoginStore } from './store/login/loginStore';
 import Dashboard from 'views/dashboard'
 import AxiosInstance from 'service/AxiosInstance';
 import useToast from 'customHooks/useToast';
 import { Container, Header, Sidebar } from 'components';
+import Profile from 'views/profile'
 
 const App = () => {
     const { isLogin } = LoginStore.useState();
@@ -46,6 +47,10 @@ const App = () => {
         }
         getInitialData();
     }, []);
+
+    useEffect(() => {
+        getRole()
+    }, [])
     return (
         <Container>
             <BrowserRouter>
@@ -56,6 +61,7 @@ const App = () => {
                             <Sidebar>
                                 <Routes>
                                     <Route path='/' element={<Dashboard />} />
+                                    <Route path='/profile' element={<Profile />} />
                                 </Routes>
                             </Sidebar>
                         </>
