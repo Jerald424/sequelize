@@ -8,6 +8,7 @@ const { authorization } = require('./utils/jwtFunctions')
 app.use(express.json()) //access req.body
 app.use(cors()) //return value to client
 
+app.use('/api', require('./routes/sendMail'))
 //routes
 app.use('/api', require('./routes/loginRoutes'))
 app.use('/api', require('./routes/roleRoutes'))
