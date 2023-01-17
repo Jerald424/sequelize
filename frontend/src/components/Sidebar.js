@@ -79,7 +79,7 @@ const Sidebar = ({ children }) => {
         <div style={{ display: toggle || hover ? "block" : "none" }}>
           <div className="mt-5">
             {navigationAssets?.map((res, i) => (
-              <Hover className="df p-2 mt-1 br-2" key={i + "navigation"} onClick={() => navigate(res?.link)}>
+              <Hover className="df p-2 mt-1 br-2 cp" key={i + "navigation"} onClick={() => navigate(res?.link)}>
                 <Icon className="me-4" src={res?.icon} />
                 <Para className="f1">{res?.name}</Para>
               </Hover>
@@ -88,7 +88,7 @@ const Sidebar = ({ children }) => {
         </div>
       </div>
       <div
-        className={`total-routes ${toggle ? "total-routes-sidebar-on" : "total-routes-sidebar-off"
+        className={`total-routes f1 ${toggle ? "total-routes-sidebar-on" : "total-routes-sidebar-off"
           } pt-3`}
       >
         {children}
