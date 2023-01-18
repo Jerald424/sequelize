@@ -1,0 +1,6 @@
+.city-state-table{
+    height: 300px;
+    overflow-y: scroll;
+}
+.city-state-table::-webkit-scrollbar{
+}

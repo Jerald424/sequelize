@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { LoginStore } from "store/login/loginStore";
 import { getCity, getState } from "./apicalls";
 import CityState from "./CityState";
+import "styles/profile.css";
 
 export default function Index() {
     const { userData, roles } = LoginStore.useState();

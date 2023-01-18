@@ -54,6 +54,22 @@
 .cp{
   cursor: pointer;
 }
+.mv-1{
+  margin:5px 0 ;
+}
+.mv-2{
+  margin: 10px 0;
+}
+
+  /* _______ROW___COLUMN____ */
+  .d2m1{
+    display: flex;
+  }
+  @media only screen and (max-width:600px){
+    .d2m1{
+      flex-direction: column;
+    }
+  }
 /* _______________________________________________________________ */
 
 /* The switch - the box around the slider */
