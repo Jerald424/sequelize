@@ -83,7 +83,7 @@ export default function CityState() {
           </thead>
         </table>
       </div>
-      <Model />
+      <Model heading={'Model heading'} />
     </div>
   );
 }

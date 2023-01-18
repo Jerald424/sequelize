@@ -1,22 +1,32 @@
 import { useColors } from "customHooks/ColorsHook"
 import { ThemeStore } from "store/theme/colorStore"
+import Icon from "./Icon";
+import { HeadingText } from "./Typography";
+import { GrFormClose } from 'react-icons/gr';
+import Button from "./Button";
 
-export default function Model({ id = "exampleModal" }) {
+
+export default function Model({ id = "exampleModal", heading }) {
     const { isDark } = ThemeStore.useState();
+    const { colors } = useColors();
+
+    var hideModal = hideModalInfo => {
+        // (id).modal("hide");
+    };
+
     return (
         <div class="modal fade" id={id} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog  ">
                 <div class={`modal-content ${isDark ? "bg-dark" : "bg-light"}`}>
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header" style={{ borderColor: colors?.popupBg }}>
+                        <HeadingText>{heading}</HeadingText>
                     </div>
                     <div class="modal-body">
                         ...
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer" style={{ borderColor: colors?.popupBg }}>
+                        <Button variant="danger" data-bs-dismiss="modal">Cancel</Button>
+                        <Button onClick={hideModal}>Ok</Button>
                     </div>
                 </div>
             </div>
