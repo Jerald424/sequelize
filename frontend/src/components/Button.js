@@ -8,7 +8,7 @@ export default function Button({
   showText = true,
   className,
   modelId,
-  toggle = "model",
+  toggle = "modal",
   ...props
 }) {
   return (
@@ -17,7 +17,7 @@ export default function Button({
       onClick={onClick}
       {...props}
       data-bs-toggle={toggle}
-      data-bs-target={"exampleModal"}
+      data-bs-target={"#exampleModal"}
     >
       {btnLoading && (
         <div class={`spinner-border spinner-border-sm ${showText && "me-2"}`} />
