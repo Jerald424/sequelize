@@ -7,6 +7,7 @@ import Button from "./Button";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import Hover from "./styleComponent/Hover";
+import Model from "./Model";
 
 export {
     Container,
@@ -19,5 +20,6 @@ export {
     Button,
     Sidebar,
     Header,
-    Hover
+    Hover,
+    Model
 }

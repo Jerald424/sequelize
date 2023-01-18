@@ -1,4 +1,4 @@
-import { Button, HeadingText, Hover, Para, SubHeading } from "components";
+import { Button, HeadingText, Hover, Model, Para, SubHeading } from "components";
 import { ProfileSupportStore } from "store/profile/ProfileStore";
 import { MdBookmarkAdd, MdEdit, MdDelete } from "react-icons/md";
 import Flatlist from "components/Flatlist";
@@ -18,7 +18,7 @@ export default function CityState() {
       <div className="f1">
         <div className="daj">
           <HeadingText>City</HeadingText>
-          <Button>
+          <Button modelId='exampleModal'>
             <MdBookmarkAdd />
           </Button>
         </div>
@@ -83,6 +83,7 @@ export default function CityState() {
           </thead>
         </table>
       </div>
+      <Model />
     </div>
   );
 }
