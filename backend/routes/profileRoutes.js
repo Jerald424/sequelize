@@ -92,56 +92,86 @@ router.post('/city', isAdminUser, async (req, res) => {
     }
 })
 
-router.delete('/city/:id', isAdminUser, async (req, res) => {
-    try {
-        const { id } = req.params;
-        await db.City.destroy({
-            where: {
-                id: id
-            }
-        })
-        res.json('City deleted')
+router.put("/city/:id", isAdminUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const updatedCity = await db.City.update(data, {
+      where: {
+        id: id,
+      },
+      returning: true,
+    });
+    res.json(updatedCity?.[1]?.[0]);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
-router.get('/city', async (req, res) => {
-    try {
-        const city = await db.City.findAndCountAll()
-        res.json(city)
+router.delete("/city/:id", isAdminUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    await db.City.destroy({
+      where: {
+        id: id,
+      },
+    });
+    res.json("City deleted");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+router.get("/city", async (req, res) => {
+  try {
+    const city = await db.City.findAndCountAll();
+    res.json(city);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+router.get("/state", async (req, res) => {
+  try {
+    const state = await db.State.findAndCountAll();
+    res.json(state);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
-router.get('/state', async (req, res) => {
-    try {
-        const state = await db.State.findAndCountAll()
-        res.json(state)
+router.post("/state", isAdminUser, async (req, res) => {
+  try {
+    const { name } = req.body;
+    if (!Boolean(name)) return res.status(400).send("Required field are missing");
+    const [state, created] = await db.State.findOrCreate({
+      where: {
+        name: name,
+      },
+      defaults: {
+        name: name,
+      },
+    });
+    res.json({ state: state, created: created });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+router.put("/state/:id", isAdminUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const updatedState = await db.State.update(data, {
+      where: {
+        id: id,
+      },
+      returning: true,
+    });
 
-router.post('/state', isAdminUser, async (req, res) => {
-    try {
-        const { name } = req.body;
-        if (!(Boolean(name))) return res.status(400).send('Required field are missing')
-        const [state, created] = await db.State.findOrCreate({
-            where: {
-                name: name
-            },
-            defaults: {
-                name: name
-            }
-        })
-        res.json({ state: state, created: created })
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+    res.json(updatedState?.[1]?.[0]);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
 module.exports = router

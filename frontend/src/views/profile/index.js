@@ -7,8 +7,7 @@ import "styles/profile.css";
 
 export default function Index() {
     const { userData, roles } = LoginStore.useState();
-    const role = roles?.filter(res => res?.id === userData?.role_id)?.[0];
-    console.log('___________', role)
+    const role = roles?.filter((res) => res?.id === userData?.role_id)?.[0];
 
     useEffect(() => {
         getCity()

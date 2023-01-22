@@ -16,14 +16,8 @@ export default function Model({
   const { colors } = useColors();
 
   return (
-    <div
-      class="modal fade"
-      id={id}
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog  ">
+    <div class="modal fade" id={id} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ zIndex: 9999 }}>
+      <div class="modal-dialog ">
         <div class={`modal-content ${isDark ? "bg-dark" : "bg-light"}`}>
           <div class="modal-header" style={{ borderColor: colors?.popupBg }}>
             <SubHeading>{heading}</SubHeading>
