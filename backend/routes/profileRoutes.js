@@ -174,4 +174,19 @@ router.put("/state/:id", isAdminUser, async (req, res) => {
   }
 });
 
+router.delete("/state/:id", isAdminUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!Boolean(id)) return res.status(400).send("Required Field Missing");
+    await db.State.destroy({
+      where: {
+        id: id,
+      },
+    });
+    return res.json("State Deleted Successfully");
+  } catch (error) {
+    res.status(500).send(error?.message);
+  }
+});
+
 module.exports = router

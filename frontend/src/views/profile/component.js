@@ -5,27 +5,40 @@ import AxiosInstance from "service/AxiosInstance";
 import { ProfileSupportStore } from "store/profile/ProfileStore";
 import { ThemeStore } from "store/theme/colorStore";
 
-export default function CityStateModel({ state, modelId }) {
-  // console.log("_______/___--", state);
+export default function CityStateModel({ modelState, modelId }) {
   const [inputBox, setInputBox] = useState("");
   const { isDark } = ThemeStore.useState();
+  const { city, state } = ProfileSupportStore.useState();
   const showToast = useToast();
   // ____HANDLE__SUBMIT____
   const handleModelForm = (e) => {
     e.preventDefault();
-    let method = state?.id ? "put" : "post";
-    let url = state?.id ? "/" + state?.key + "/" + state?.id : "/" + state?.key;
+    let method = modelState?.id ? "put" : "post";
+    let url = modelState?.id ? "/" + modelState?.key + "/" + modelState?.id : "/" + modelState?.key;
 
     AxiosInstance[method](url, {
       name: inputBox,
     })
       .then((res) => {
-        if (state.id) {
+        if (modelState.id) {
+          let updated =
+            modelState?.key === "state"
+              ? state?.map((res) => {
+                  if (res?.id === modelState?.id) return { ...res, name: inputBox };
+                  else return res;
+                })
+              : city?.map((res) => {
+                  if (res?.id === modelState?.id) return { ...res, name: inputBox };
+                  else return res;
+                });
+          ProfileSupportStore.update((s) => {
+            s[modelState?.key] = updated;
+          });
         } else if (res?.created) {
           ProfileSupportStore.update((s) => {
-            s[state?.id] = [...s[state.id], res[state?.id]];
+            s[modelState?.key] = [...s[modelState.key], res[modelState?.key]];
           });
-        } else showToast(`${state?.id} already exist`, "warning");
+        } else showToast(`${modelState?.id} already exist`, "warning");
       })
       .catch((err) => console.log(err))
       .finally((_) => setInputBox(""));
@@ -33,11 +46,11 @@ export default function CityStateModel({ state, modelId }) {
 
   // ____LOAD___INITIAL_EDIT_____
   useEffect(() => {
-    if (state?.id) setInputBox(state?.name);
-  }, [state]);
+    if (modelState?.id) setInputBox(modelState?.name);
+  }, [modelState]);
 
   return (
-    <Model id={modelId} heading={state?.value}>
+    <Model id={modelId} heading={modelState?.value}>
       <form onSubmit={handleModelForm}>
         <SubHeading>Name</SubHeading>
         <div className="daj gap-2">

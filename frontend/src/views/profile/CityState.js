@@ -5,10 +5,15 @@ import Flatlist from "components/Flatlist";
 import { useState } from "react";
 import CityStateModel from "./component";
 import { ThemeStore } from "store/theme/colorStore";
+import useAlert from "customHooks/useAlert";
+import AxiosInstance from "service/AxiosInstance";
+import useToast from "customHooks/useToast";
 
 export default function CityState() {
   const { state, city } = ProfileSupportStore.useState();
   const { isDark } = ThemeStore.useState();
+  const showAlert = useAlert();
+  const showToast = useToast();
 
   const [modelState, setModelState] = useState({ id: "", value: "" });
 
@@ -19,6 +24,23 @@ export default function CityState() {
   // ____HANDLE__EDIT____
   const handleEdit = (res, title) => {
     setModelState({ ...res, ...title });
+  };
+
+  // ___HANDLE__DELETE__
+  const handleDelete = (item, type) => {
+    showAlert("Delete " + item?.name)
+      .then((_) => {
+        let url = type + "/" + item?.id;
+        AxiosInstance.delete(url)
+          .then((_) => {
+            showToast(type + " Deleted", "success");
+            ProfileSupportStore.update((s) => {
+              s[type] = s[type]?.filter((res) => res?.id !== item?.id);
+            });
+          })
+          .catch((err) => showToast(err));
+      })
+      .catch((err) => console.log("_________ERR_______"));
   };
 
   return (
@@ -60,7 +82,7 @@ export default function CityState() {
                       <Button data-bs-toggle={"modal"} data-bs-target={"#cityStateModel"} onClick={() => handleEdit(res, { key: "city", value: "Edit City" })} variant="info" style={{ color: "white", marginRight: "10px" }}>
                         <MdEdit />
                       </Button>
-                      <Button variant="danger">
+                      <Button variant="danger" onClick={() => handleDelete(res, "city")}>
                         <MdDelete />
                       </Button>
                     </td>
@@ -108,7 +130,7 @@ export default function CityState() {
                       <Button variant="info" data-bs-toggle={"modal"} data-bs-target={"#cityStateModel"} style={{ color: "white", marginRight: "10px" }} onClick={() => handleEdit(res, { key: "state", value: "Edit State" })}>
                         <MdEdit />
                       </Button>
-                      <Button variant="danger">
+                      <Button variant="danger" onClick={() => handleDelete(res, "state")}>
                         <MdDelete />
                       </Button>
                     </td>
@@ -119,7 +141,7 @@ export default function CityState() {
           </table>
         </div>
       </div>
-      <CityStateModel state={modelState} modelId="cityStateModel" />
+      <CityStateModel modelState={modelState} modelId="cityStateModel" />
     </div>
   );
 }
