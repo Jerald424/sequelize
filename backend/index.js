@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 require('./sequelize')
 const { authorization } = require('./utils/jwtFunctions')
+require("./routes/socketIo");
 
 //midddlewhere
 app.use(express.json()) //access req.body

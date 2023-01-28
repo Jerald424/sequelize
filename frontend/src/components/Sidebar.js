@@ -24,7 +24,7 @@ const Sidebar = ({ children }) => {
   const navigationAssets = [
     { name: "Home", link: "/", icon: BiHome },
     { name: "Profile", link: "/profile", icon: CgProfile },
-    { name: "Friends", link: "#", icon: FiUsers },
+    { name: "Chat", link: "/chat", icon: FiUsers },
     { name: "Settings", link: "#", icon: IoMdSettings },
   ];
 
