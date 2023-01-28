@@ -5,85 +5,81 @@ import AxiosInstance from 'service/AxiosInstance';
 import { LoginStore } from 'store/login/loginStore';
 import { ProfileStore } from 'store/profile/ProfileStore';
 import _ from 'lodash';
+import { getProfile } from "views/profile/apicalls";
 
 const Index = () => {
-    const { userData } = LoginStore.useState();
-    const { data } = ProfileStore.useState();
+  const { data } = ProfileStore.useState();
 
-    const showToast = useToast();
-    useEffect(() => {
-        _.isEmpty(data) && AxiosInstance.get('/profile')
-            .then(res => ProfileStore.update(s => {
-                s.data = res
-            }))
-            .catch(err => showToast(err, 'warn'))
-    }, []);
-    return (
-        <div>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
-            <SubHeading>Dashboard</SubHeading>
+  const showToast = useToast();
 
-        </div>
-    );
-}
+  useEffect(() => {
+    getProfile().catch((err) => showToast(err, "warn"));
+  }, []);
+  return (
+    <div>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+      <SubHeading>Dashboard</SubHeading>
+    </div>
+  );
+};
 
 export default Index;

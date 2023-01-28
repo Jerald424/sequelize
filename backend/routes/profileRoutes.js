@@ -2,48 +2,48 @@ const router = require('express').Router();
 const db = require('../sequelize');
 const { isAdminUser } = require('../utils/isAdminUser');
 
-router.post('/profile', async (req, res) => {
-    try {
-        const { name, place, city_id, state_id } = req.body;
-        const { user_id } = req.user_info;
+router.post("/profile", async (req, res) => {
+  try {
+    const { name, place, city_id, state_id } = req.body;
+    const { user_id } = req.user_info;
 
-        // ___CHECK_PROFILE_EXIST_FOR_USER__
-        const [profile, created] = await db.Profile.findOrCreate({
-            where: {
-                user_id: user_id
-            },
-            defaults: {
-                name: name,
-                place: place,
-                city_id: city_id,
-                state_id: state_id
-            }
-        })
+    // ___CHECK_PROFILE_EXIST_FOR_USER__
+    const [profile, created] = await db.Profile.findOrCreate({
+      where: {
+        user_id: user_id,
+      },
+      defaults: {
+        name: name,
+        place: place,
+        city_id: city_id,
+        state_id: state_id,
+      },
+    });
 
-        res.json({
-            profile: profile,
-            created: created
-        })
+    res.json({
+      profile: profile,
+      created: created,
+      message: "Profile created successfully",
+    });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
-
-router.put('/profile', async (req, res) => {
-    try {
-        const data = req.body;
-        const updatedProfile = await db.Profile.update(data, {
-            where: {
-                user_id: req.user_info.user_id
-            },
-            returning: true
-        })
-        res.json(updatedProfile[1][0])
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+router.put("/profile", async (req, res) => {
+  try {
+    const data = req.body;
+    const updatedProfile = await db.Profile.update(data, {
+      where: {
+        user_id: req.user_info.user_id,
+      },
+      returning: true,
+    });
+    res.json({ data: updatedProfile[1][0], message: "Profile updated successfully" });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 router.get('/profile', async (req, res) => {
     try {
         const profile = await db.Profile.findOne({

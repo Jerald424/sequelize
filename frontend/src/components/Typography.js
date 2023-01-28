@@ -20,12 +20,14 @@ export const HeadingText = ({ children, style, ...props }) => {
   );
 };
 
-export const SubHeading = ({ children }) => {
-    const { colors } = useColors()
-    return (
-        <h6 style={{ color: colors?.subHeading, fontWeight: 'bold', margin: 0 }}>{children}</h6>
-    )
-}
+export const SubHeading = ({ children, ...props }) => {
+  const { colors } = useColors();
+  return (
+    <h6 style={{ color: colors?.subHeading, fontWeight: "bold" }} {...props}>
+      {children}
+    </h6>
+  );
+};
 
 export const Para = ({ children, style, ...props }) => {
     const { colors } = useColors()
