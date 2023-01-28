@@ -123,7 +123,7 @@ router.delete("/city/:id", isAdminUser, async (req, res) => {
 });
 router.get("/city", async (req, res) => {
   try {
-    const city = await db.City.findAndCountAll();
+    const city = await db.City.findAndCountAll({ order: [["id", "ASC"]] });
     res.json(city);
   } catch (error) {
     res.status(500).send(error.message);
@@ -132,7 +132,9 @@ router.get("/city", async (req, res) => {
 
 router.get("/state", async (req, res) => {
   try {
-    const state = await db.State.findAndCountAll();
+    const state = await db.State.findAndCountAll({
+      order: [["id", "ASC"]],
+    });
     res.json(state);
   } catch (error) {
     res.status(500).send(error.message);

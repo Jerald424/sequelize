@@ -25,7 +25,6 @@ export const getState = () =>
 
 export const getProfile = () =>
   new Promise(function (resolve, reject) {
-    console.log("++++++++++++++++++++++++++++++++++++++++++++");
     AxiosInstance.get("/profile")
       .then((res) =>
         ProfileStore.update((s) => {

@@ -13,14 +13,14 @@ function Profile() {
   // name, place, city_id, state_id
   const { city, state } = ProfileSupportStore.useState();
   const { isDark } = ThemeStore.useState();
-  const { data } = ProfileStore.useState();
+  const { data: profileData } = ProfileStore.useState();
   const showToast = useToast();
   useEffect(() => {
     getProfile();
   }, []);
   useEffect(() => {
-    setProfileState({ name: data?.name, place: data?.place, city: city?.filter((res) => res?.id === data?.city_id)?.[0], state: state?.filter((res) => res?.id === data?.state_id)?.[0] });
-  }, [data]);
+    setProfileState({ name: profileData?.name, place: profileData?.place, city: city?.filter((res) => res?.id === profileData?.city_id)?.[0], state: state?.filter((res) => res?.id === profileData?.state_id)?.[0] });
+  }, [profileData]);
 
   const [profileState, setProfileState] = useState({ name: "", place: "", city: {}, state: {}, btnLoading: false });
 
@@ -39,7 +39,7 @@ function Profile() {
       city_id: profileState?.city?.id,
       state_id: profileState?.state?.id,
     };
-    let method = _.isEmpty(data) ? "post" : "put";
+    let method = _.isEmpty(profileData) ? "post" : "put";
     AxiosInstance[method]("/profile", data)
       .then((res) => {
         showToast(res?.message, "success");
