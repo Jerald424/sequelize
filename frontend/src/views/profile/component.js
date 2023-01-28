@@ -54,7 +54,7 @@ export default function CityStateModel({ modelState, modelId }) {
       <form onSubmit={handleModelForm}>
         <SubHeading>Name</SubHeading>
         <div className="daj gap-2">
-          <input value={inputBox} onChange={(e) => setInputBox(e.target.value)} className={`form-control mv-2 ${isDark ? "bg-dark" : "bg-light"}`} />
+          <input value={inputBox} onChange={(e) => setInputBox(e.target.value)} className={`form-control mv-2 ${isDark ? "bg-dark text-light" : "bg-light text-dark"}`} />
           <Button data-bs-dismiss="modal" type="submit" onClick={handleModelForm}>
             Enter
           </Button>
