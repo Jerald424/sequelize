@@ -8,7 +8,6 @@ export const HeadingText = ({ children, style, ...props }) => {
       style={{
         color: colors.heading,
         fontWeight: "bold",
-        margin: 0,
         overflow: "hidden",
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",

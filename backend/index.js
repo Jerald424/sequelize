@@ -18,6 +18,8 @@ app.use('/api', require('./routes/isVerifyRoute'))
 app.use(authorization);
 app.use('/api', require('./routes/changePassword'))
 app.use('/api', require('./routes/profileRoutes'))
+app.use("/api", require("./routes/friendsRoutes"));
+app.use("/api", require("./routes/comments/commentRoutes"));
 
 app.listen(5000, () => {
     console.log('app was running port 5000')

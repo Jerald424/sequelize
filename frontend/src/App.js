@@ -8,6 +8,7 @@ import useToast from 'customHooks/useToast';
 import { Container, Header, Sidebar } from 'components';
 import Profile from 'views/profile'
 import Chat from "views/chat";
+import Posts from "views/posts";
 
 const App = () => {
   const { isLogin } = LoginStore.useState();
@@ -64,6 +65,7 @@ const App = () => {
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/chat" element={<Chat />} />
+                <Route path="/posts" element={<Posts />} />
               </Routes>
             </Sidebar>
           </>

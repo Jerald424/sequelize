@@ -1,11 +1,6 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
-console.log(
-  "_____________",
-  process.env.DATABASE,
-  process.env.USERNAME,
-  process.env.PASSWORD
-);
+
 
 const sequelize = new Sequelize({
   database: process.env.DATABASE,
@@ -33,6 +28,8 @@ db.Login = require("../models/userLogin")(sequelize);
 db.Profile = require("../models/profileModel")(sequelize);
 db.City = require("../models/supportData/cityModel")(sequelize);
 db.State = require("../models/supportData/stateModel")(sequelize);
+db.Post = require("../models/postModel")(sequelize);
+db.Comments = require("../models/commentsModel")(sequelize);
 
 db.Role.hasOne(db.Login, {
   foreignKey: {
@@ -68,6 +65,25 @@ db.State.hasOne(db.Profile, {
 });
 db.Profile.belongsTo(db.State);
 
-db.sequelize.sync({});
+//posts
+db.Post.hasMany(db.Login, {
+  foreignKey: {
+    name: "post_id",
+  },
+});
+db.Login.belongsTo(db.Post, {
+  foreignKey: {
+    name: "user_id",
+  },
+});
+
+db.Post.hasMany(db.Comments, {
+  foreignKey: {
+    name: "post_id",
+  },
+});
+db.Comments.belongsTo(db.Post);
+
+db.sequelize.sync({ alter: true });
 
 module.exports = db;
